@@ -28,7 +28,7 @@ import type { PipelineKey } from "@/lib/types";
 // the number of passing tests in the Python evaluation suite, which has no
 // JSON artifact of its own. Re-verify with `pytest -q` before publishing;
 // last verified at the time this page was written.
-const LAST_VERIFIED_PASSING_TEST_COUNT = 632;
+const LAST_VERIFIED_PASSING_TEST_COUNT = 877;
 
 export default function Home() {
   const sample = getSampleReport();
