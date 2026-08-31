@@ -1,0 +1,22 @@
+# Model configuration — Amazon Bedrock Mantle.
+#
+# Both models are now called: main_llm since Phase 6 (final-answer
+# generation, configs/mantle.yaml) and since Phase 7 also as the
+# Agentic Multi-Hop RAG loop's final-answer model; router_fallback since Phase 7
+# as the agent controller (configs/agent.yaml) — its ORIGINAL intended role
+# (the complexity router's Stage B classification) is still a later phase,
+# not yet implemented; Phase 7 reuses the same model for a different job
+# (sufficiency/follow-up decisions), not the router itself.
+
+bedrock_mantle:
+  main_llm:
+    model_id: "qwen.qwen3-next-80b-a3b-instruct"
+    role: "Primary generation / agentic reasoning model"
+
+  router_fallback:
+    model_id: "zai.glm-4.7-flash"
+    role: >
+      Cheap LLM fallback for the complexity router's Stage B classification
+      (not yet implemented), used only when heuristic features are
+      ambiguous. Since Phase 7, also reused as the Agentic Multi-Hop RAG
+      loop's controller model (configs/agent.yaml) — a separate job, same model.

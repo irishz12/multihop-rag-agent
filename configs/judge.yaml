@@ -1,0 +1,35 @@
+# Phase 9 LLM-as-judge configuration — Amazon Bedrock Mantle.
+#
+# The judge model is DELIBERATELY a third, distinct model from both
+# `qwen.qwen3-next-80b-a3b-instruct` (configs/mantle.yaml: generation — the
+# model that produces every candidate answer being judged) and
+# `zai.glm-4.7-flash` (configs/agent.yaml: controller — the Agentic Multi-Hop
+# RAG/Adaptive RAG routing model) — the judge never grades its own output, and
+# never shares a model with a routing decision either.
+#
+# Judge configuration is FROZEN per the Phase 9 spec ("keep judge
+# configuration frozen") — not tuned, not swept, validated on a small
+# sample before the full run (see scripts/run_phase9_judge.py --validate).
+
+judge:
+  model_id: "openai.gpt-oss-120b"
+  temperature: 0.0
+  # 300 was tried first and truncated ~4% of real validation-sample responses
+  # mid-JSON (output_tokens hit the cap exactly) — see
+  # results/phase9_judge_validation.json's first validation pass. Raised to
+  # 400 before the frozen full run; re-validated at this value.
+  max_output_tokens: 400
+  prompt_version: "v1"  # see mhrag.eval.judge_prompts
+
+pricing:
+  # NOT AVAILABLE at implementation time — deliberately left null rather
+  # than guessed (see mhrag.generation.cost.estimate_cost_usd's "cost is
+  # never silently guessed" rule, which mhrag.eval.judge.call_judge
+  # follows identically). Judge TOKEN USAGE and LATENCY are tracked
+  # exactly regardless; only the derived USD cost is unknown until real
+  # pricing is supplied here.
+  source: null
+  as_of_date: null
+  currency: "USD"
+  input_per_million_tokens: null
+  output_per_million_tokens: null

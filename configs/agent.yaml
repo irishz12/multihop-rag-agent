@@ -1,0 +1,33 @@
+# Agentic Multi-Hop RAG — bounded agent loop configuration.
+#
+# Final-answer model/config is UNCHANGED from Phase 6 (configs/mantle.yaml:
+# generation) — this file configures the AGENT CONTROLLER and the loop's
+# hard limits only. Retrieval itself (chunking, embeddings, BM25, RRF,
+# reranker, candidate depths) is the frozen Phase 2-5 pipeline and is not
+# reconfigured here.
+
+controller:
+  # Must match configs/models.yaml: bedrock_mantle.router_fallback.model_id
+  model_id: "zai.glm-4.7-flash"
+  temperature: 0.0
+  max_output_tokens: 300
+  prompt_version: "v1"  # see mhrag.agent.prompts
+
+loop:
+  max_hops: 3              # initial retrieval = hop 1; up to 2 follow-ups — HARD cap, enforced in code
+  hop_top_k: 5               # chunks returned per hop after reranking (unchanged Phase 5/6 production depth)
+  max_evidence_chunks: 15     # safety ceiling on merged-pool chunks considered for final context
+  max_context_tokens: 4500     # total token budget across ALL merged evidence — stops the loop early if exceeded
+                                  # Phase 7.1 calibration result (was 3000): see
+                                  # results/agentic_budget_calibration_decision.json for the full sweep and
+                                  # objective selection rule (mhrag.calibration.decision.select_budget)
+  timeout_seconds: 30            # wall-clock budget for the whole loop, checked every hop
+
+pricing:
+  # GLM 4.7 Flash — Mumbai (ap-south-1) standard-tier pricing.
+  # Qwen (final-answer model) pricing is unchanged, still in configs/mantle.yaml.
+  source: "Phase 7 spec (user-provided)"
+  as_of_date: "2026-08-28"
+  currency: "USD"
+  input_per_million_tokens: 0.08
+  output_per_million_tokens: 0.48

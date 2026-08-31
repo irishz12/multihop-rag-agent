@@ -1,0 +1,182 @@
+[
+  {
+    "query": "Do the TechCrunch article on software companies and the Hacker News article on The Epoch Times both report an increase in revenue related to payment and subscription models, respectively?",
+    "answer": "Yes",
+    "question_type": "comparison_query",
+    "evidence_list": [
+      {
+        "title": "Here\u2019s how Rainforest, a budding Stripe rival, aims to win over software companies",
+        "author": "Christine Hall",
+        "url": "https://techcrunch.com/2023/10/08/heres-how-rainforest-an-atlanta-fintech-startup-and-stripe-rival-aims-to-win-over-software-companies/",
+        "source": "TechCrunch",
+        "category": "technology",
+        "published_at": "2023-10-08T14:16:01+00:00",
+        "fact": "They really just want to be able to accept payments and generate more revenue from being able to do so."
+      },
+      {
+        "title": "How the conspiracy-fueled Epoch Times went mainstream and made millions",
+        "author": null,
+        "url": "https://www.nbcnews.com/news/us-news/epoch-times-falun-gong-growth-rcna111373",
+        "source": "Hacker News",
+        "category": "technology",
+        "published_at": "2023-10-16T03:41:24+00:00",
+        "fact": "The group reported $76 million in subscription revenue in 2021, compared to nearly $7 million in 2019."
+      }
+    ]
+  },
+  {
+    "query": "Does the TechCrunch article on Twitch's subscription revenue split policy indicate a different monetization strategy compared to the TechCrunch article on Beeper's plans for Beeper Mini subscriptions?",
+    "answer": "Yes",
+    "question_type": "comparison_query",
+    "evidence_list": [
+      {
+        "title": "Twitch\u2019s money guy talks about the revenue split controversy and its monetization long game",
+        "author": "Morgan Sung",
+        "url": "https://techcrunch.com/2023/10/26/twitch-mike-minton-chief-monetization-officer-twitchcon-2023-partner-plus-revenue-split/",
+        "source": "TechCrunch",
+        "category": "technology",
+        "published_at": "2023-10-26T22:28:10+00:00",
+        "fact": "Last year, the company announced that it would end the 70/30 subscription revenue split deal that it had offered select streamers in favor of prioritizing ad revenue."
+      },
+      {
+        "title": "Beeper Mini is back in operation after Apple\u2019s attempt to shut it down",
+        "author": "Sarah Perez",
+        "url": "https://techcrunch.com/2023/12/11/beeper-mini-is-back-in-operation-after-apples-attempt-to-shut-it-down/",
+        "source": "TechCrunch",
+        "category": "technology",
+        "published_at": "2023-12-11T18:08:48+00:00",
+        "fact": "\u201cAs soon as things stabilize (we hope they will), we\u2019ll look at turning on subscriptions again,\u201d the blog post reads."
+      }
+    ]
+  },
+  {
+    "query": "Who is the individual associated with the cryptocurrency industry facing a criminal trial on fraud and conspiracy charges, as reported by both The Verge and TechCrunch, and is accused by prosecutors of committing fraud for personal gain?",
+    "answer": "Sam Bankman-Fried",
+    "question_type": "inference_query",
+    "evidence_list": [
+      {
+        "title": "The FTX trial is bigger than Sam Bankman-Fried",
+        "author": "Elizabeth Lopatto",
+        "url": "https://www.theverge.com/2023/9/28/23893269/ftx-sam-bankman-fried-trial-evidence-crypto",
+        "source": "The Verge",
+        "category": "technology",
+        "published_at": "2023-09-28T12:00:00+00:00",
+        "fact": "Before his fall, Bankman-Fried made himself out to be the Good Boy of crypto \u2014 the trustworthy face of a sometimes-shady industry."
+      },
+      {
+        "title": "SBF\u2019s trial starts soon, but how did he \u2014 and FTX \u2014 get here?",
+        "author": "Jacquelyn Melinek",
+        "url": "https://techcrunch.com/2023/10/01/ftx-lawsuit-timeline/",
+        "source": "TechCrunch",
+        "category": "technology",
+        "published_at": "2023-10-01T14:00:29+00:00",
+        "fact": "The highly anticipated criminal trial for Sam Bankman-Fried, former CEO of bankrupt crypto exchange FTX, started Tuesday to determine whether he\u2019s guilty of seven counts of fraud and conspiracy."
+      },
+      {
+        "title": "Sam Altman backs teens\u2019 startup, Google unveils the Pixel 8 and TikTok tests an ad-free tier",
+        "author": "Kyle Wiggers",
+        "url": "https://techcrunch.com/2023/10/07/sam-altman-backs-a-teens-startup-google-unveils-the-pixel-8-and-tiktok-tests-an-ad-free-tier/",
+        "source": "TechCrunch",
+        "category": "technology",
+        "published_at": "2023-10-07T20:15:26+00:00",
+        "fact": "The prosecution painted Bankman-Fried as someone who knowingly committed fraud to achieve great wealth, power and influence, while the defense countered that the FTX founder acted in good faith, never meant to commit fraud or steal and basically got in over his head."
+      }
+    ]
+  },
+  {
+    "query": "Which individual is implicated in both inflating the value of a Manhattan apartment to a figure not yet achieved in New York City's real estate history, according to 'Fortune', and is also accused of adjusting this apartment's valuation to compensate for a loss in another asset's worth, as reported by 'The Age'?",
+    "answer": "Donald Trump",
+    "question_type": "inference_query",
+    "evidence_list": [
+      {
+        "title": "Donald Trump defrauded banks with 'fantasy' to build his real estate empire, judge rules in a major repudiation against the former president",
+        "author": "Michael R. Sisak, The Associated Press",
+        "url": "https://fortune.com/2023/09/26/donald-trump-fraud-banks-insurers-real-estate-judge-new-york/",
+        "source": "Fortune",
+        "category": "business",
+        "published_at": "2023-09-26T21:11:15+00:00",
+        "fact": "No apartment in New York City has ever sold for close to that amount, James said."
+      },
+      {
+        "title": "The $777 million surprise: Donald Trump is getting richer",
+        "author": "Tom Maloney",
+        "url": "https://www.theage.com.au/business/companies/the-777-million-surprise-donald-trump-is-getting-richer-20231108-p5eicf.html?ref=rss&utm_medium=rss&utm_source=rss_business",
+        "source": "The Age",
+        "category": "business",
+        "published_at": "2023-11-07T22:22:05+00:00",
+        "fact": "The prosecution argues that was to mask a drop in the value of one of his other properties."
+      }
+    ]
+  },
+  {
+    "query": "Considering the information from a BBC article detailing Sridevi's achievements in the Indian film industry and a Times of India report on her posthumous honors, which single character from a film portrayed by Sridevi has been recognized for its cultural impact and has also been commemorated with a special award after her passing?",
+    "answer": "Insufficient information.",
+    "question_type": "null_query",
+    "evidence_list": []
+  },
+  {
+    "query": "What is the first letter of the name of the company that, according to an article from The Financial Times, received the most European patents in 2021, and is also mentioned in a Bloomberg article as having faced a significant legal challenge at the European Patent Office over one of its key patents?",
+    "answer": "Insufficient information.",
+    "question_type": "null_query",
+    "evidence_list": []
+  },
+  {
+    "query": "After the TechCrunch report on October 7, 2023, concerning Dave Clark's comments on Flexport, and the subsequent TechCrunch article on October 30, 2023, regarding Ryan Petersen's actions at Flexport, was there a change in the nature of the events reported?",
+    "answer": "Yes",
+    "question_type": "temporal_query",
+    "evidence_list": [
+      {
+        "title": "Sam Altman backs teens\u2019 startup, Google unveils the Pixel 8 and TikTok tests an ad-free tier",
+        "author": "Kyle Wiggers",
+        "url": "https://techcrunch.com/2023/10/07/sam-altman-backs-a-teens-startup-google-unveils-the-pixel-8-and-tiktok-tests-an-ad-free-tier/",
+        "source": "TechCrunch",
+        "category": "technology",
+        "published_at": "2023-10-07T20:15:26+00:00",
+        "fact": "Turmoil at Flexport: Dave Clark, the former Amazon executive who was ousted as CEO of Flexport just a year into the job, fired back at its founder and board, calling recent reporting on the logistics company \u201cdeeply concerning.\u201d Clark made the comments Monday in a lengthy post on social media site X following a report from CNBC that provided new information about his last days at Flexport, a freight forwarding and customs brokerage startup valued at $8 billion."
+      },
+      {
+        "title": "Cruise hits the brakes on driverless, UAW makes progress and more EV backpedaling",
+        "author": "Kirsten Korosec",
+        "url": "https://techcrunch.com/2023/10/30/cruise-hits-the-brakes-on-driverless-uaw-makes-progress-and-more-ev-backpedaling/",
+        "source": "TechCrunch",
+        "category": "technology",
+        "published_at": "2023-10-30T10:15:24+00:00",
+        "fact": "Petersen has spent the past month cutting costs, including laying off about 20% of its workers, or about 600 people."
+      }
+    ]
+  },
+  {
+    "query": "Was there no change in the portrayal of Google's influence on the digital ecosystem between the report from The Verge on Google's impact on the internet's appearance published on November 1, 2023, and the report from TechCrunch on a class action antitrust suit against Google published later?",
+    "answer": "no",
+    "question_type": "temporal_query",
+    "evidence_list": [
+      {
+        "title": "The people who ruined the internet",
+        "author": "Amanda Chicago Lewis",
+        "url": "https://www.theverge.com/features/23931789/seo-search-engine-optimization-experts-google-results",
+        "source": "The Verge",
+        "category": "technology",
+        "published_at": "2023-11-01T13:00:00+00:00",
+        "fact": "The company did accomplish that goal, but in doing so, it inadvertently and profoundly changed how the internet looked."
+      },
+      {
+        "title": "Epic v. Google, explained",
+        "author": "Sean Hollister",
+        "url": "https://www.theverge.com/23944251/epic-google-antitrust-trial-explainer-monopoly",
+        "source": "The Verge",
+        "category": "technology",
+        "published_at": "2023-11-05T11:00:00+00:00",
+        "fact": "This whole line of argument is called \u201cmarket definition.\u201d If the court decides the relevant market is phones and app stores, not specifically Android ones, then Google\u2019s on the road to victory."
+      },
+      {
+        "title": "News publisher files class action antitrust suit against Google, citing AI\u2019s harms to their bottom line",
+        "author": "Sarah Perez",
+        "url": "https://techcrunch.com/2023/12/15/news-publisher-files-class-action-antitrust-suit-against-google-citing-ais-harms-to-their-bottom-line/",
+        "source": "TechCrunch",
+        "category": "technology",
+        "published_at": "2023-12-15T17:56:02+00:00",
+        "fact": "The case, filed by Arkansas-based publisher Helena World Chronicle, argues that Google \u201csiphons off\u201d news publishers\u2019 content, their readers and ad revenue through anticompetitive means."
+      }
+    ]
+  }
+]

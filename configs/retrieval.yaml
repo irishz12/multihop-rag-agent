@@ -1,0 +1,56 @@
+# Retrieval configuration — Agentic Multi-Hop RAG.
+# Phase 2 added the dense Vector RAG baseline; Phase 3 extends the SAME
+# Qdrant collection (see qdrant.collection_name) with a named BM25 sparse
+# vector, so dense/BM25/hybrid all read from one collection.
+
+qdrant:
+  url: "http://localhost:6333"
+  collection_name: "mhrag_chunks__bge_base_en_v1_5"
+  distance: "Cosine"
+
+embedding:
+  model_name: "BAAI/bge-base-en-v1.5"
+  device: "cpu"
+  normalize: true
+  batch_size: 32
+  # BGE's documented usage: prepend this instruction to QUERY text only.
+  # Passage/chunk text is embedded with no instruction. See
+  # https://huggingface.co/BAAI/bge-base-en-v1.5
+  query_instruction: "Represent this sentence for searching relevant passages: "
+
+chunking:
+  # Paragraph-aware packing, never crosses a document boundary.
+  target_tokens: 300   # close the current chunk once it reaches this size
+  max_tokens: 400       # hard ceiling; a single paragraph over this is sentence-split
+  overlap_tokens: 40     # trailing tokens carried into the next chunk
+
+bm25:
+  # FastEmbed's "Qdrant/bm25" model produces TF-saturation sparse vectors;
+  # IDF is applied server-side by Qdrant's Modifier.IDF on the indexed
+  # sparse vector (see mhrag.ingestion.bm25 module docstring).
+  model_name: "Qdrant/bm25"
+
+retrieval:
+  default_top_k: 5
+
+hybrid:
+  # Candidate depth per retriever before fusion, and how many fused results
+  # come back. As of Phase 4.1 the canonical hybrid path is deterministic
+  # application-side RRF@k=60 (mhrag.retrieval.rrf.deterministic_hybrid_search) —
+  # these two "top_k" values are its dense_top_k/bm25_top_k/final_top_k
+  # defaults. (Qdrant's server-side Fusion.RRF, mhrag.retrieval.hybrid, also
+  # reads this same config but is kept only as a reference implementation.)
+  dense_top_k: 20
+  bm25_top_k: 20
+  final_top_k: 5
+
+reranker:
+  # Phase 5: cross-encoder reranking on top of the fused Hybrid RRF pool.
+  # Run locally (sentence-transformers CrossEncoder, no external API).
+  model_name: "BAAI/bge-reranker-base"
+  device: "cpu"
+  batch_size: 32
+  # Fixed candidate depth — the reranker scores exactly the fused top-20
+  # chunks (matching hybrid.dense_top_k/bm25_top_k above); NOT tuned in
+  # Phase 5 ("do NOT tune candidate depth in this phase").
+  candidate_depth: 20

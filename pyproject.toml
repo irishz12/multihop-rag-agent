@@ -1,0 +1,45 @@
+[project]
+name = "agentic-multi-hop-rag"
+version = "0.1.0"
+description = "Agentic Multi-Hop RAG: a cost-aware agentic RAG system, benchmarked on MultiHop-RAG."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "pyyaml>=6.0",
+    "numpy>=1.26",
+    "sentence-transformers>=6.0,<7.0",
+    "qdrant-client>=1.19,<1.20",
+    "fastembed>=0.8,<0.9",
+    "openai>=1.40,<2.0",
+    "scikit-learn>=1.4,<2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+# Portfolio documentation tooling only (results/charts/ generation) — never imported by
+# any retrieval/routing/agent/generation module; the benchmarked system has no plotting
+# dependency at all.
+viz = [
+    "matplotlib>=3.8",
+]
+# Live portfolio demo API (backend/) only — a thin FastAPI wrapper that imports and calls
+# mhrag.agent.loop.run_agentic_retrieval unmodified. Never imported by, and adds no
+# dependency to, the benchmarked retrieval/routing/agent/generation/eval pipeline itself.
+demo = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "python-dotenv>=1.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

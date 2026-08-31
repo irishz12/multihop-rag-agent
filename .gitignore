@@ -1,0 +1,74 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Virtual environments ---
+.venv/
+venv/
+
+# --- Environment variables ---
+.env
+
+# --- Dataset: raw downloads and generated artifacts (regenerate via scripts/) ---
+data/raw/
+# NOTE: `data/processed/*` (not `data/processed/`) is deliberate — a bare
+# `dir/` pattern excludes the directory itself, and git then refuses to
+# descend into it at all, silently making every `!`-exception below it a
+# no-op (this is documented git behavior: a negation cannot re-include a
+# file whose parent directory is excluded). `dir/*` excludes only the
+# directory's *contents*, so file-level negations below still work.
+data/processed/*
+# ...except the benchmark manifest: small, no dataset content, and is the
+# provenance record (seeds, sizes, distributions, split hashes) worth tracking.
+!data/processed/benchmark_manifest.json
+# ...and dev_subset.json: the frontend's Live Demo example-question chips
+# (frontend/lib/data.ts:getExampleQuestions) read this file directly at
+# build time — it must exist in a fresh clone for `npm run build` to work.
+# NEVER add a similar exception for final_holdout.json — that file must
+# stay untracked; nothing in the live frontend/backend reads it.
+!data/processed/dev_subset.json
+
+# --- Vector index, run results ---
+data/index/
+# `results/*`, not `results/` — see the note above data/processed/*; a bare
+# `results/` would silently defeat every `!`-exception listed below it.
+results/*
+# ...except the Phase 4 retrieval evaluation artifact: ~400KB, no raw
+# corpus/QA content beyond doc-id-level references, and is the evidence
+# (per-query + aggregate metrics, exact config/hashes) that the evaluation
+# ran — worth tracking like the benchmark manifest above. Also tracks the
+# Phase 4.1-superseded version (Qdrant-native default-k RRF hybrid numbers)
+# for the explicit old-vs-corrected comparison.
+!results/retrieval_eval_development.json
+!results/retrieval_eval_development_superseded_qdrant_native_rrf.json
+# ...and every result artifact the frontend reads at build time
+# (frontend/lib/data.ts) or the root README names/embeds directly —
+# without these, a fresh clone's `npm run build` fails (missing files)
+# and the README's charts/traceability claims are false.
+!results/phase9_sample_report.json
+!results/phase9_holdout_report.json
+!results/phase9_sample.json
+!results/phase9_dense_raw.json
+!results/phase9_hybrid_raw.json
+!results/phase9_hybrid_reranker_raw.json
+!results/learned_router_model.json
+!results/final_holdout_consumed.json
+!results/final_evaluation_manifest.json
+!results/charts/
+!results/charts/*.png
+
+# --- Test / tooling caches ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.idea/
+.vercel
+.env*

@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fafaf8;
+  --surface: #f3f2ee;
+  --ink: #16181c;
+  --ink-muted: #5b6169;
+  --ink-faint: #6c7178;
+  --rule: #dedcd4;
+  --accent: #0f5aa8;
+  --accent-2: #b8620a;
+
+  --font-display: var(--font-source-serif);
+  --font-body: var(--font-plex-sans);
+  --font-data: var(--font-plex-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131417;
+    --surface: #1a1c20;
+    --ink: #f1f0ec;
+    --ink-muted: #a3a9b0;
+    --ink-faint: #8a919a;
+    --rule: #2c2f34;
+    --accent: #5b9fe0;
+    --accent-2: #e0954a;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-data: var(--font-data);
+}
+
+/*
+ * Everything below lives inside Tailwind's own `base` layer (rather than as
+ * bare, unlayered rules) on purpose: unlayered CSS always wins over ANY
+ * `@layer`-wrapped rule regardless of specificity or source order, which
+ * would otherwise make a plain "* { border-color: ... }" or similar rule
+ * here silently beat utilities like `sr-only` or `border-collapse` applied
+ * in components. Keeping our base styles inside the same layer Tailwind
+ * uses for its own resets lets ordinary utility classes override them
+ * exactly the way Tailwind's docs describe.
+ */
+@layer base {
+  * {
+    border-color: var(--color-rule);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* Tabular, evenly-spaced numerals everywhere a measured value is shown. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

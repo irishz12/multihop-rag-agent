@@ -1,0 +1,266 @@
+{
+  "generated_at": "2026-08-29T09:03:37.867435+00:00",
+  "purpose": "FINAL HOLDOUT evaluation \u2014 Adaptive vs Always-Agentic, one-time report",
+  "split": "final_holdout",
+  "sample_seed": 2029,
+  "sample_size": 50,
+  "n_non_null": 44,
+  "n_null": 6,
+  "integrity_check": "PASSED \u2014 all frozen files unchanged since pre-access manifest",
+  "pre_access_manifest_generated_at": "2026-08-29T08:40:33.750965+00:00",
+  "distribution": {
+    "question_type_distribution": {
+      "comparison_query": 16,
+      "inference_query": 16,
+      "null_query": 6,
+      "temporal_query": 12
+    },
+    "stratum_distribution": {
+      "comparison_query::hop3": 3,
+      "comparison_query::hop2": 13,
+      "inference_query::hop3": 7,
+      "inference_query::hop2": 3,
+      "inference_query::hop4": 6,
+      "null_query": 6,
+      "temporal_query::hop3": 5,
+      "temporal_query::hop2": 7
+    }
+  },
+  "deterministic_metrics": {
+    "always_agentic": {
+      "normalized_exact_match": 0.0,
+      "token_f1": 0.03497687883684589,
+      "null_query_abstention_accuracy": 1.0
+    },
+    "adaptive": {
+      "normalized_exact_match": 0.0,
+      "token_f1": 0.029229204065801453,
+      "null_query_abstention_accuracy": 1.0
+    }
+  },
+  "judge_scores": {
+    "always_agentic": {
+      "mean_judge_score_including_fallbacks": 0.6590909090909091,
+      "mean_judge_score_excluding_fallbacks": 0.6904761904761905,
+      "n_correct": 29,
+      "n_partially_correct": 0,
+      "n_incorrect": 15,
+      "n_judge_fallbacks": 2,
+      "fallback_qa_ids": [
+        "39511fae0adbdb13",
+        "334302feedd34428"
+      ]
+    },
+    "adaptive": {
+      "mean_judge_score_including_fallbacks": 0.5,
+      "mean_judge_score_excluding_fallbacks": 0.5116279069767442,
+      "n_correct": 22,
+      "n_partially_correct": 0,
+      "n_incorrect": 22,
+      "n_judge_fallbacks": 1,
+      "fallback_qa_ids": [
+        "334302feedd34428"
+      ]
+    }
+  },
+  "combined_quality_mean": {
+    "always_agentic": 0.7,
+    "adaptive": 0.56
+  },
+  "adaptive_quality_retention_pct_vs_always_agentic": 0.8000000000000002,
+  "evidence_coverage_mean": {
+    "always_agentic": 0.7594696969696969,
+    "adaptive": 0.6799242424242424
+  },
+  "cost_latency": {
+    "always_agentic_mean_cost_usd": 0.001159317,
+    "adaptive_mean_cost_usd": 0.0009070447999999999,
+    "always_agentic_mean_latency_ms": 9660.066042499857,
+    "adaptive_mean_latency_ms": 7573.4826075198,
+    "cost_reduction_pct": 0.21760415831045354,
+    "latency_reduction_pct": 0.21600094924817778
+  },
+  "breakdown_by_question_type": {
+    "inference_query": {
+      "n": 16,
+      "always_agentic_mean_quality": 1.0,
+      "adaptive_mean_quality": 0.9375
+    },
+    "temporal_query": {
+      "n": 12,
+      "always_agentic_mean_quality": 0.3333333333333333,
+      "adaptive_mean_quality": 0.16666666666666666
+    },
+    "null_query": {
+      "n": 6,
+      "always_agentic_mean_quality": 1.0,
+      "adaptive_mean_quality": 1.0
+    },
+    "comparison_query": {
+      "n": 16,
+      "always_agentic_mean_quality": 0.5625,
+      "adaptive_mean_quality": 0.3125
+    }
+  },
+  "breakdown_by_hop_count": {
+    "hop3": {
+      "n": 15,
+      "always_agentic_mean_quality": 0.6,
+      "adaptive_mean_quality": 0.4
+    },
+    "hop2": {
+      "n": 23,
+      "always_agentic_mean_quality": 0.6086956521739131,
+      "adaptive_mean_quality": 0.43478260869565216
+    },
+    "hop4": {
+      "n": 6,
+      "always_agentic_mean_quality": 1.0,
+      "adaptive_mean_quality": 1.0
+    },
+    "null": {
+      "n": 6,
+      "always_agentic_mean_quality": 1.0,
+      "adaptive_mean_quality": 1.0
+    }
+  },
+  "under_routed_failures": [
+    {
+      "qa_id": "12424e2fa2fc9879",
+      "question_type": "temporal_query",
+      "hop_count": 3,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 1.0,
+      "adaptive_evidence_coverage": 0.3333333333333333,
+      "always_agentic_evidence_coverage": 0.6666666666666666
+    },
+    {
+      "qa_id": "fd0b8fefd73632e6",
+      "question_type": "inference_query",
+      "hop_count": 4,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 1.0,
+      "always_agentic_judge_score": 1.0,
+      "adaptive_evidence_coverage": 0.5,
+      "always_agentic_evidence_coverage": 0.75
+    },
+    {
+      "qa_id": "e2c0e0f31037b613",
+      "question_type": "comparison_query",
+      "hop_count": 2,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 1.0,
+      "adaptive_evidence_coverage": 0.5,
+      "always_agentic_evidence_coverage": 1.0
+    },
+    {
+      "qa_id": "d990a4fcd047e7dd",
+      "question_type": "temporal_query",
+      "hop_count": 2,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 1.0,
+      "adaptive_evidence_coverage": 0.5,
+      "always_agentic_evidence_coverage": 1.0
+    },
+    {
+      "qa_id": "39511fae0adbdb13",
+      "question_type": "comparison_query",
+      "hop_count": 3,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 0.0,
+      "adaptive_evidence_coverage": 0.3333333333333333,
+      "always_agentic_evidence_coverage": 0.6666666666666666
+    },
+    {
+      "qa_id": "923a9084620a5027",
+      "question_type": "comparison_query",
+      "hop_count": 2,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 1.0,
+      "adaptive_evidence_coverage": 0.5,
+      "always_agentic_evidence_coverage": 1.0
+    },
+    {
+      "qa_id": "42fc19577db150e8",
+      "question_type": "comparison_query",
+      "hop_count": 2,
+      "route": "MEDIUM",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 0.0,
+      "adaptive_evidence_coverage": 0.5,
+      "always_agentic_evidence_coverage": 1.0
+    },
+    {
+      "qa_id": "fa3f26abfc6170d3",
+      "question_type": "temporal_query",
+      "hop_count": 3,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 0.0,
+      "adaptive_evidence_coverage": 0.6666666666666666,
+      "always_agentic_evidence_coverage": 1.0
+    },
+    {
+      "qa_id": "d6ac4e62e26cfe33",
+      "question_type": "comparison_query",
+      "hop_count": 2,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 1.0,
+      "adaptive_evidence_coverage": 0.5,
+      "always_agentic_evidence_coverage": 0.5
+    },
+    {
+      "qa_id": "19bb593dd8f5c84f",
+      "question_type": "inference_query",
+      "hop_count": 3,
+      "route": "SIMPLE",
+      "adaptive_judge_score": 0.0,
+      "always_agentic_judge_score": 1.0,
+      "adaptive_evidence_coverage": 1.0,
+      "always_agentic_evidence_coverage": 1.0
+    }
+  ],
+  "development_vs_holdout": {
+    "development": {
+      "combined_quality_mean": {
+        "hybrid_reranker": 0.54,
+        "always_agentic": 0.64,
+        "adaptive": 0.6
+      },
+      "adaptive_quality_retention_pct": 0.9375,
+      "cost_reduction_pct": 0.17235564074379037,
+      "latency_reduction_pct": 0.14489090695962126,
+      "evidence_coverage_mean": {
+        "always_agentic": 0.8106060606060606,
+        "adaptive": 0.7746212121212122
+      }
+    },
+    "holdout": {
+      "combined_quality_mean": {
+        "always_agentic": 0.7,
+        "adaptive": 0.56
+      },
+      "adaptive_quality_retention_pct": 0.8000000000000002,
+      "cost_reduction_pct": 0.21760415831045354,
+      "latency_reduction_pct": 0.21600094924817778,
+      "evidence_coverage_mean": {
+        "always_agentic": 0.7594696969696969,
+        "adaptive": 0.6799242424242424
+      }
+    }
+  },
+  "judge_fallback_total": 3,
+  "total_evaluation_cost": {
+    "total_pipeline_cost_usd": 0.10331809,
+    "total_judge_cost_usd": null,
+    "n_judge_calls": 88,
+    "judge_total_input_tokens": 45057,
+    "judge_total_output_tokens": 15706
+  }
+}

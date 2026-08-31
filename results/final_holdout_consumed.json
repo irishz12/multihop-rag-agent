@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-08-29T09:05:37.932964+00:00",
+  "purpose": "FINAL HOLDOUT evaluation \u2014 CONSUMED marker. final_holdout.json has been used for its one-time Phase 9 evaluation (Adaptive vs Always-Agentic, 50-question stratified sample). No further tuning is permitted based on these results.",
+  "status": "CONSUMED",
+  "sample_seed": 2029,
+  "sample_size": 50,
+  "pre_access_manifest_generated_at": "2026-08-29T08:40:33.750965+00:00",
+  "holdout_report_generated_at": "2026-08-29T09:03:37.867435+00:00",
+  "holdout_report_path": "results/phase9_holdout_report.json",
+  "integrity_check": "PASSED \u2014 all frozen files unchanged since pre-access manifest"
+}

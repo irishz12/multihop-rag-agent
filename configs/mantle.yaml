@@ -1,0 +1,40 @@
+# Amazon Bedrock Mantle — client, generation, and cost-tracing configuration.
+#
+# Model ID DECISIONS live in configs/models.yaml (fixed, approved) — this
+# file configures HOW we call the main LLM, not WHICH one. This phase calls
+# only the main LLM; the router fallback model is not invoked yet.
+
+client:
+  # Base URL and API key come from the environment, never hardcoded as the
+  # only option:
+  #   $MANTLE_BASE_URL (falls back to default_base_url below if unset)
+  #   $OPENAI_API_KEY  (required for any real call — no fallback, no default)
+  base_url_env: "MANTLE_BASE_URL"
+  default_base_url: "https://bedrock-mantle.ap-south-1.api.aws/v1"
+  api_key_env: "OPENAI_API_KEY"
+  region: "ap-south-1"
+  timeout_seconds: 60
+  max_retries: 3
+  retry_base_delay_seconds: 1.0
+
+generation:
+  # Must match configs/models.yaml: bedrock_mantle.main_llm.model_id
+  model_id: "qwen.qwen3-next-80b-a3b-instruct"
+  temperature: 0.0
+  max_output_tokens: 512
+  prompt_version: "v1"  # see mhrag.generation.prompts
+
+context:
+  # NOT tuned in this phase — a fixed initial baseline.
+  top_k_chunks: 5
+  max_context_tokens: 3000
+
+pricing:
+  # Mumbai (ap-south-1) standard-tier pricing for the fixed main model.
+  # Kept in config (not code) so it can be updated later without a code
+  # change — just edit these two numbers and the date/source below.
+  source: "Phase 6 spec (user-provided)"
+  as_of_date: "2026-08-28"
+  currency: "USD"
+  input_per_million_tokens: 0.18
+  output_per_million_tokens: 1.41

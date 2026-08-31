@@ -1,0 +1,41 @@
+# Dataset configuration — Agentic Multi-Hop RAG, Phase 1.
+#
+# Source: https://huggingface.co/datasets/yixuantt/MultiHopRAG
+# (Tang & Yang, 2024, "MultiHop-RAG", COLM 2024, arXiv:2401.15391)
+
+source:
+  hf_dataset: "yixuantt/MultiHopRAG"
+  base_url: "https://huggingface.co/datasets/yixuantt/MultiHopRAG/resolve/main"
+  corpus_file: "corpus.json"      # 609 news documents (title, author, source, published_at, category, url, body)
+  qa_file: "MultiHopRAG.json"     # 2556 QA pairs (query, answer, question_type, evidence_list)
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+
+subset:
+  # DEVELOPMENT benchmark. Deterministic subset, stratified proportionally by
+  # question_type. Unchanged from Phase 1 — this is the "existing 300-question
+  # stratified subset" that Phase 2 treats as the development set.
+  seed: 42
+  size: 300
+  output_file: "data/processed/dev_subset.json"
+
+benchmark:
+  # FINAL HOLDOUT. Sampled from the QA population MINUS the development
+  # subset above (disjoint by construction), stratified by question_type.
+  # A different seed from `subset.seed` on purpose — never reuse the dev seed
+  # here, or a future upstream data reshuffle could make the two collide.
+  final_holdout:
+    seed: 123
+    size: 300
+    output_file: "data/processed/final_holdout.json"
+
+  # SMOKE subset. Sampled from the development set ONLY (never touches the
+  # final holdout), for cheap fast iteration during later phases.
+  smoke:
+    seed: 7
+    size: 40
+    output_file: "data/processed/smoke_subset.json"
+
+  manifest_file: "data/processed/benchmark_manifest.json"
