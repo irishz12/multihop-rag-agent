@@ -69,6 +69,17 @@ export function titleCaseHopBucket(key: string): string {
   return map[key] ?? key;
 }
 
+export function titleCaseStopReason(key: string): string {
+  const map: Record<string, string> = {
+    evidence_sufficient: "Evidence sufficient",
+    max_hops: "Max hops reached",
+    token_budget: "Token budget reached",
+    duplicate_query: "Duplicate query",
+    timeout: "Timeout",
+  };
+  return map[key] ?? key;
+}
+
 export const PIPELINE_LABEL: Record<string, string> = {
   dense: "Dense RAG",
   hybrid: "Hybrid RAG",

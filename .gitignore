@@ -58,6 +58,11 @@ results/*
 !results/learned_router_model.json
 !results/final_holdout_consumed.json
 !results/final_evaluation_manifest.json
+# ...and the two artifacts behind the "why iterative retrieval earns its
+# cost" case study (README §15 / frontend/lib/data.ts): the multi-hop
+# success analysis and its live-replayed worked examples.
+!results/multihop_success_analysis.json
+!results/multihop_examples_replay.json
 !results/charts/
 !results/charts/*.png
 

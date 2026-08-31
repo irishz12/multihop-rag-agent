@@ -25,7 +25,7 @@ const GROUPS = [
 
 export function TechStack() {
   return (
-    <Section id="tech-stack" number="10" title="Tech Stack" width="wide">
+    <Section id="tech-stack" number="11" title="Tech Stack" width="wide">
       <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
         {GROUPS.map((group) => (
           <div key={group.title}>

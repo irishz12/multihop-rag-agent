@@ -176,3 +176,99 @@ export interface BaselineCostLatency {
   cost: number;
   latency: number;
 }
+
+export interface MultihopSuccessExampleDetail {
+  qa_id: string;
+  question: string;
+  question_type: string;
+  gold_answer: string;
+  num_agent_hops: number;
+  stop_reason: string;
+  gold_doc_ids: string[];
+  hop1_doc_ids: string[];
+  final_doc_ids_all_hops: string[];
+  newly_added_required_doc_ids: string[];
+  agentic_answer: string;
+  baseline_answer: string;
+  matched_answer: string;
+  agentic_grade: string;
+  baseline_grade: string;
+  matched_grade: string;
+  tier: number;
+}
+
+export interface MultihopSuccessAnalysis {
+  generated_at: string;
+  purpose: string;
+  scope_label: string;
+  populations: {
+    population_all_multihop_n: number;
+    population_three_way_n: number;
+  };
+  evidence_coverage_three_way: {
+    baseline_hybrid_reranker: number;
+    context_matched: number;
+    agentic_final_all_hops: number;
+  };
+  added_required_evidence: {
+    n: number;
+    denominator: number;
+    pct: number;
+    by_question_type: Record<string, number>;
+    qa_ids: string[];
+  };
+  final_judge_outcome_breakdown: {
+    denominator: number;
+    judge_covered_n: number;
+    beats_both_baselines: { n: number; qa_ids: string[] };
+    beats_one_baseline: { n: number; qa_ids: string[] };
+    ties_or_losses: { n: number; qa_ids: string[] };
+  };
+  excluded_qa_ids: {
+    qa_ids: string[];
+    reason: string;
+    scope: string;
+  };
+  selected_example_qa_ids: string[];
+  selected_examples_detail: MultihopSuccessExampleDetail[];
+}
+
+export interface MultihopExampleHopChunk {
+  chunk_id: string;
+  doc_id: string;
+  rank: number;
+  score: number;
+  title: string;
+}
+
+export interface MultihopExampleHop {
+  hop_number: number;
+  query: string;
+  new_chunk_ids: string[];
+  duplicate_chunk_ids: string[];
+  retrieved_chunks: MultihopExampleHopChunk[];
+}
+
+export interface MultihopExampleReplayRecord {
+  qa_id: string;
+  query: string;
+  question_type: string;
+  hops: MultihopExampleHop[];
+  stop_reason: string;
+  num_retrieval_calls: number;
+  num_controller_calls: number;
+  evidence_doc_ids_used_final: string[];
+  answer: string;
+  total_cost_usd: number;
+  total_latency_ms: number;
+}
+
+export interface MultihopExamplesReplay {
+  generated_at: string;
+  purpose: string;
+  selected_from: string;
+  split: string;
+  n_questions_total: number;
+  n_questions_completed: number;
+  records: MultihopExampleReplayRecord[];
+}

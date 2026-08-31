@@ -16,7 +16,7 @@ const COMMANDS = [
 
 export function Reproducibility({ sampleSeed, routerCvSeed }: ReproducibilityProps) {
   return (
-    <Section id="reproducibility" number="12" title="Reproducibility">
+    <Section id="reproducibility" number="13" title="Reproducibility">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div className="space-y-4 text-[1.0625rem] leading-relaxed text-ink-muted">
           <p>

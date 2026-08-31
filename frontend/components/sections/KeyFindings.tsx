@@ -25,7 +25,7 @@ export function KeyFindings({ holdout }: KeyFindingsProps) {
   ];
 
   return (
-    <Section id="findings" number="11" title="Key Findings & Limitations">
+    <Section id="findings" number="12" title="Key Findings & Limitations">
       <div className="space-y-10">
         <div>
           <h3 className="text-sm font-medium tracking-wide text-ink-faint uppercase">Findings</h3>

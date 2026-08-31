@@ -8,9 +8,10 @@ const SECTIONS = [
   { id: "journey", number: "07", title: "Experiment Journey" },
   { id: "failure-analysis", number: "08", title: "Failure Analysis" },
   { id: "methodology", number: "09", title: "Evaluation Methodology" },
-  { id: "tech-stack", number: "10", title: "Tech Stack" },
-  { id: "findings", number: "11", title: "Key Findings & Limitations" },
-  { id: "reproducibility", number: "12", title: "Reproducibility" },
+  { id: "case-study", number: "10", title: "Case Study: Why Iterative Retrieval Earns Its Cost" },
+  { id: "tech-stack", number: "11", title: "Tech Stack" },
+  { id: "findings", number: "12", title: "Key Findings & Limitations" },
+  { id: "reproducibility", number: "13", title: "Reproducibility" },
 ];
 
 /** A plain-text contents list, doubling as the page's only navigation — no

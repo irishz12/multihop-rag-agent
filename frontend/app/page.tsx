@@ -1,6 +1,7 @@
 import { Architecture } from "@/components/sections/Architecture";
 import { BaselineComparison } from "@/components/sections/BaselineComparison";
 import { BusinessProblem } from "@/components/sections/BusinessProblem";
+import { CaseStudy } from "@/components/sections/CaseStudy";
 import { ExperimentJourney } from "@/components/sections/ExperimentJourney";
 import { FailureAnalysis } from "@/components/sections/FailureAnalysis";
 import { FinalHoldoutResults } from "@/components/sections/FinalHoldoutResults";
@@ -18,6 +19,8 @@ import {
   getExampleQuestions,
   getHoldoutConsumed,
   getHoldoutReport,
+  getMultihopExamplesReplay,
+  getMultihopSuccessAnalysis,
   getRetrievalEval,
   getRouterModel,
   getSampleReport,
@@ -38,6 +41,8 @@ export default function Home() {
   const holdoutConsumed = getHoldoutConsumed();
   const devBaselineCostLatency = getDevBaselineCostLatency();
   const exampleQuestions = getExampleQuestions();
+  const multihopSuccessAnalysis = getMultihopSuccessAnalysis();
+  const multihopExamplesReplay = getMultihopExamplesReplay();
 
   const retrievalRows = (["dense", "hybrid", "hybrid_reranker"] as const).map((key) => ({
     key,
@@ -76,6 +81,7 @@ export default function Home() {
       <ExperimentJourney retrievalEval={retrievalEval} holdout={holdout} />
       <FailureAnalysis sample={sample} holdout={holdout} />
       <Methodology holdoutConsumed={holdoutConsumed} passingTestCount={LAST_VERIFIED_PASSING_TEST_COUNT} />
+      <CaseStudy successAnalysis={multihopSuccessAnalysis} examplesReplay={multihopExamplesReplay} />
       <TechStack />
       <KeyFindings holdout={holdout} />
       <Reproducibility sampleSeed={sample.sample_seed} routerCvSeed={routerModel.cv_seed} />
