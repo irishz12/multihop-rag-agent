@@ -1,6 +1,6 @@
 # Agentic Multi-Hop RAG
 
-**Live Portfolio:** https://agentic-multi-hop-rag.vercel.app
+**Live Portfolio:** https://multi-hop-rag.vercel.app
 
 A cost-aware retrieval-augmented generation system benchmarked on
 [MultiHop-RAG](https://github.com/yixuantt/MultiHop-RAG) (Tang & Yang, 2024,
